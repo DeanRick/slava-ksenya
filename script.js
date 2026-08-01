@@ -1,5 +1,5 @@
 // Дата свадьбы для обратного отсчёта
-const TARGET_DATE = '2027-08-01T16:00:00';
+const TARGET_DATE = '2027-08-14T16:00:00';
 
 // TODO: вставить URL веб-приложения Google Apps Script после деплоя
 const SHEETS_ENDPOINT = '';
@@ -22,30 +22,34 @@ function tickCountdown() {
 tickCountdown();
 setInterval(tickCountdown, 1000);
 
-// Радио- и чекбокс-группы
-const state = { attend: '', transfer: '', alcohol: new Set() };
+// Радио-группы анкеты
+const state = {
+  attend: '', transfer: '',
+  alcoholType: '', wineColor: '', wineSweet: '', spirit: '',
+  menuChoice: '', pencil: '',
+};
+
+const wineBlock = document.getElementById('wine-block');
+const spiritBlock = document.getElementById('spirit-block');
+
+function updateAlcoholBlocks() {
+  wineBlock.hidden = state.alcoholType !== 'Вино';
+  spiritBlock.hidden = state.alcoholType !== 'Крепкие напитки';
+}
 
 document.querySelectorAll('.option-group').forEach(group => {
   const key = group.dataset.group;
-  const type = group.dataset.type;
+  const isPencilJoke = group.dataset.pencilJoke === 'true';
 
   group.querySelectorAll('.option-row').forEach(row => {
     row.addEventListener('click', () => {
-      const value = row.dataset.value;
+      // Шутка из оригинального дизайна: клик по «Нет» на самом деле подтверждает участие
+      const value = isPencilJoke && row.dataset.value === 'Нет' ? 'Конечно, да!' : row.dataset.value;
 
-      if (type === 'radio') {
-        state[key] = value;
-        group.querySelectorAll('.option-row').forEach(r => r.classList.toggle('selected', r === row));
-      } else {
-        const set = state[key];
-        if (set.has(value)) {
-          set.delete(value);
-          row.classList.remove('selected');
-        } else {
-          set.add(value);
-          row.classList.add('selected');
-        }
-      }
+      state[key] = value;
+      group.querySelectorAll('.option-row').forEach(r => r.classList.toggle('selected', r.dataset.value === value));
+
+      if (key === 'alcoholType') updateAlcoholBlocks();
     });
   });
 });
@@ -69,10 +73,14 @@ form.addEventListener('submit', async (e) => {
   const payload = {
     name,
     attend: state.attend,
-    guests: document.getElementById('f-guests').value.trim(),
-    alcohol: Array.from(state.alcohol).join(', '),
+    alcoholType: state.alcoholType,
+    wineColor: state.wineColor,
+    wineSweet: state.wineSweet,
+    spirit: state.spirit,
     transfer: state.transfer,
-    menu: document.getElementById('f-menu').value.trim(),
+    menuChoice: state.menuChoice,
+    allergies: document.getElementById('f-allergies').value.trim(),
+    pencil: state.pencil,
   };
 
   submitBtn.disabled = true;

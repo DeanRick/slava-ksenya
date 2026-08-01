@@ -15,14 +15,14 @@
 
     <!-- ===== HERO ===== -->
     <div class="hero">
-      <img src="assets/couple.png" alt="Святослав и Ксения" class="hero-photo" onerror="this.style.display='none'">
+      <img src="assets/couple.jpg" alt="Святослав и Ксения" class="hero-photo" onerror="this.style.display='none'">
       <div class="hero-overlay"></div>
       <div class="hero-eyebrow">Save the date</div>
       <div class="hero-text">
         <div class="hero-name">Святослав</div>
         <div class="hero-amp">&amp;</div>
         <div class="hero-name">Ксения</div>
-        <div class="hero-date">Август 2027</div>
+        <div class="hero-date">14 августа 2027</div>
       </div>
     </div>
 
@@ -45,17 +45,27 @@
       </div>
     </section>
 
-    <!-- ===== FLORAL ACCENT (placeholder) ===== -->
-    <div class="floral-accent">фото · тёмные пионы / розы</div>
-
     <!-- ===== VENUE ===== -->
-    <section class="section section--green center">
-      <div class="eyebrow">Место проведения</div>
-      <div class="divider"><span class="divider-line"></span><span class="divider-dot"></span><span class="divider-line"></span></div>
-      <div class="label-sm">Площадка для мероприятий</div>
-      <div class="venue-name">ZaBereg</div>
-      <p class="body-text venue-address">Городской посёлок имени Свердлова,<br>Всеволожский район, Ленинградская область</p>
-      <a href="https://2gis.ru/spb/geo/70000001048138346/30.690000,59.786124" target="_blank" rel="noopener" class="btn btn--outline">Показать на карте</a>
+    <section class="section section--photo center">
+      <img src="assets/venue.jpg" alt="Пушкинская усадьба" class="section-bg" onerror="this.style.display='none'">
+      <div class="section-bg-overlay section-bg-overlay--green"></div>
+      <div class="section-content">
+        <div class="eyebrow">Место проведения</div>
+        <div class="divider"><span class="divider-line"></span><span class="divider-dot"></span><span class="divider-line"></span></div>
+        <div class="label-sm">Площадка для мероприятий</div>
+        <div class="venue-name">Пушкинская усадьба</div>
+        <p class="body-text venue-address">Ждём вас на нашем празднике</p>
+        <a href="https://yandex.ru/maps/-/CTv2RVkk" target="_blank" rel="noopener" class="btn btn--outline">Показать на карте</a>
+      </div>
+    </section>
+
+    <!-- ===== DETAILS ===== -->
+    <section class="section section--maroon center">
+      <div class="eyebrow">Детали</div>
+      <div class="divider" style="margin-bottom:30px;"><span class="divider-line"></span><span class="divider-dot"></span><span class="divider-line"></span></div>
+      <p class="script-quote">Ваш смех и улыбки дарят нам счастье сегодня, а пожелания в конвертах — мечты завтра.</p>
+      <p class="body-text" style="max-width:340px;margin:0 auto 26px;">Наша свадьба станет событием с ярким драйвом и нотками трэша, но дух праздника останется трогательным и волшебным. Чтобы сохранить этот настрой, просим Вас прийти без маленьких помощников. Заранее благодарим за понимание и поддержку!</p>
+      <p class="body-text" style="max-width:340px;margin:0 auto;">В программе запланированы денежные конкурсы. Возьмите наличку, если хотите поддержать праздник.</p>
     </section>
 
     <!-- ===== GUEST FORM ===== -->
@@ -82,17 +92,40 @@
         </div>
 
         <div class="field">
-          <label class="field-label">Количество гостей / с кем придёте</label>
-          <input type="text" name="guests" id="f-guests" placeholder="Например, буду с супругом — 2 человека">
-        </div>
-
-        <div class="field">
           <label class="field-label">Предпочтения по алкоголю</label>
-          <div class="option-group" data-group="alcohol" data-type="checkbox">
-            <div class="option-row" data-value="Вино"><span class="option-box"><span class="option-check">✓</span></span><span class="option-label">Вино</span></div>
-            <div class="option-row" data-value="Шампанское"><span class="option-box"><span class="option-check">✓</span></span><span class="option-label">Шампанское</span></div>
-            <div class="option-row" data-value="Крепкие напитки"><span class="option-box"><span class="option-check">✓</span></span><span class="option-label">Крепкие напитки</span></div>
-            <div class="option-row" data-value="Безалкогольное / не пью"><span class="option-box"><span class="option-check">✓</span></span><span class="option-label">Безалкогольное / не пью</span></div>
+          <div class="option-group" data-group="alcoholType" data-type="radio">
+            <div class="option-row" data-value="Вино"><span class="option-dot"></span><span class="option-label">Вино</span></div>
+            <div class="option-row" data-value="Крепкие напитки"><span class="option-dot"></span><span class="option-label">Крепкие напитки</span></div>
+            <div class="option-row" data-value="Безалкогольное / не пью"><span class="option-dot"></span><span class="option-label">Безалкогольное / не пью</span></div>
+          </div>
+
+          <div class="sub-block" id="wine-block" hidden>
+            <div>
+              <div class="sub-label">Цвет вина</div>
+              <div class="option-group" data-group="wineColor" data-type="radio">
+                <div class="option-row" data-value="Красное"><span class="option-dot"></span><span class="option-label">Красное</span></div>
+                <div class="option-row" data-value="Белое"><span class="option-dot"></span><span class="option-label">Белое</span></div>
+              </div>
+            </div>
+            <div>
+              <div class="sub-label">Сухость</div>
+              <div class="option-group" data-group="wineSweet" data-type="radio">
+                <div class="option-row" data-value="Сухое"><span class="option-dot"></span><span class="option-label">Сухое</span></div>
+                <div class="option-row" data-value="Полусухое"><span class="option-dot"></span><span class="option-label">Полусухое</span></div>
+                <div class="option-row" data-value="Полусладкое"><span class="option-dot"></span><span class="option-label">Полусладкое</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="sub-block" id="spirit-block" hidden>
+            <div class="sub-label">Крепкий напиток</div>
+            <div class="option-group" data-group="spirit" data-type="radio">
+              <div class="option-row" data-value="Водка"><span class="option-dot"></span><span class="option-label">Водка</span></div>
+              <div class="option-row" data-value="Коньяк"><span class="option-dot"></span><span class="option-label">Коньяк</span></div>
+              <div class="option-row" data-value="Джин"><span class="option-dot"></span><span class="option-label">Джин</span></div>
+              <div class="option-row" data-value="Виски"><span class="option-dot"></span><span class="option-label">Виски</span></div>
+              <div class="option-row" data-value="Ром"><span class="option-dot"></span><span class="option-label">Ром</span></div>
+            </div>
           </div>
         </div>
 
@@ -105,8 +138,25 @@
         </div>
 
         <div class="field">
-          <label class="field-label">Пожелания по меню / аллергии</label>
-          <textarea name="menu" id="f-menu" rows="3" placeholder="Расскажите об особенностях питания или аллергиях"></textarea>
+          <label class="field-label">Пожелания по меню</label>
+          <div class="option-group" data-group="menuChoice" data-type="radio">
+            <div class="option-row" data-value="Рыба"><span class="option-dot"></span><span class="option-label">Рыба</span></div>
+            <div class="option-row" data-value="Мясо"><span class="option-dot"></span><span class="option-label">Мясо</span></div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="field-label">Аллергии</label>
+          <textarea name="allergies" id="f-allergies" rows="3" placeholder="Расскажите, если есть аллергии или ограничения"></textarea>
+        </div>
+
+        <div class="field">
+          <label class="field-label">Будете ли вы участвовать в конкурсе «Карандаш-бутылка»</label>
+          <div class="option-group" data-group="pencil" data-type="radio" data-pencil-joke="true">
+            <div class="option-row" data-value="Да"><span class="option-dot"></span><span class="option-label">Да</span></div>
+            <div class="option-row" data-value="Конечно, да!"><span class="option-dot"></span><span class="option-label">Конечно, да!</span></div>
+            <div class="option-row" data-value="Нет"><span class="option-dot"></span><span class="option-label">Нет</span></div>
+          </div>
         </div>
 
         <button type="submit" class="btn btn--fill" id="f-submit">Отправить анкету</button>
@@ -133,18 +183,20 @@
       </div>
     </section>
 
-    <!-- ===== GIFTS ===== -->
-    <section class="section section--green center">
-      <div class="eyebrow">Пожелания по подаркам</div>
-      <div class="divider"><span class="divider-line"></span><span class="divider-dot"></span><span class="divider-line"></span></div>
-      <p class="body-text" style="max-width:340px;margin:0 auto;">Самый ценный подарок для нас — это ваше присутствие рядом в этот день. Если же вам захочется нас порадовать, мы будем благодарны вкладу в наше общее будущее вместо букетов цветов.</p>
-    </section>
-
     <!-- ===== CLOSING ===== -->
     <section class="section section--dark center" style="padding:70px 30px 80px;">
       <div class="closing-title">Ждём вас!</div>
       <div class="divider" style="width:140px;margin-top:30px;"><span class="divider-line"></span><span class="divider-dot"></span><span class="divider-line"></span></div>
-      <div class="closing-sub">Святослав &amp; Ксения · Август 2027</div>
+      <div class="closing-sub">Святослав &amp; Ксения · 14 августа 2027</div>
+      <p class="body-text" style="max-width:320px;margin:40px auto 0;">По всем вопросам вы можете обращаться к жениху и невесте, или нашему организатору Полине.</p>
+      <div class="contact-row">
+        <a href="tel:+79817024401" class="contact-btn" aria-label="Позвонить">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ece1d2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        </a>
+        <a href="https://t.me/apollina_smirnova" target="_blank" rel="noopener" class="contact-btn" aria-label="Написать в телеграм">
+          <svg width="24" height="24" viewBox="0 0 240 240" fill="none"><path d="M55 112l124-48c8-3 15 2 12 15l-21 100c-2 9-8 11-16 7l-44-33-21 20c-2 2-4 4-8 4l3-42 76-69c3-3-1-5-5-2l-94 59-40-13c-9-3-9-9 2-13z" fill="#ece1d2"></path></svg>
+        </a>
+      </div>
     </section>
 
   </div>
