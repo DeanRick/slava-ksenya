@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Святослав и Ксения — свадебное приглашение</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Forum&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="page">
+  <div class="card">
+
+    <!-- ===== HERO ===== -->
+    <div class="hero">
+      <img src="assets/couple.png" alt="Святослав и Ксения" class="hero-photo" onerror="this.style.display='none'">
+      <div class="hero-overlay"></div>
+      <div class="hero-eyebrow">Save the date</div>
+      <div class="hero-text">
+        <div class="hero-name">Святослав</div>
+        <div class="hero-amp">&amp;</div>
+        <div class="hero-name">Ксения</div>
+        <div class="hero-date">Август 2027</div>
+      </div>
+    </div>
+
+    <!-- ===== INVITATION ===== -->
+    <section class="section section--maroon center">
+      <div class="divider"><span class="divider-line"></span><span class="divider-dot"></span><span class="divider-line"></span></div>
+      <h2 class="script-title">Дорогие гости!</h2>
+      <p class="body-text" style="max-width:340px;margin-left:auto;margin-right:auto;">С большой радостью приглашаем вас разделить с нами один из самых важных дней нашей жизни — день нашей свадьбы. Будем счастливы видеть вас среди самых близких и дорогих нам людей.</p>
+      <div class="signature">— Святослав и Ксения</div>
+    </section>
+
+    <!-- ===== COUNTDOWN ===== -->
+    <section class="section section--dark center">
+      <div class="script-sub">До нашего праздника осталось</div>
+      <div class="countdown">
+        <div class="countdown-cell"><div class="countdown-num" id="cd-d">—</div><div class="countdown-label">дней</div></div>
+        <div class="countdown-cell"><div class="countdown-num" id="cd-h">00</div><div class="countdown-label">часов</div></div>
+        <div class="countdown-cell"><div class="countdown-num" id="cd-m">00</div><div class="countdown-label">минут</div></div>
+        <div class="countdown-cell"><div class="countdown-num" id="cd-s">00</div><div class="countdown-label">секунд</div></div>
+      </div>
+    </section>
+
+    <!-- ===== FLORAL ACCENT (placeholder) ===== -->
+    <div class="floral-accent">фото · тёмные пионы / розы</div>
+
+    <!-- ===== VENUE ===== -->
+    <section class="section section--green center">
+      <div class="eyebrow">Место проведения</div>
+      <div class="divider"><span class="divider-line"></span><span class="divider-dot"></span><span class="divider-line"></span></div>
+      <div class="label-sm">Площадка для мероприятий</div>
+      <div class="venue-name">ZaBereg</div>
+      <p class="body-text venue-address">Городской посёлок имени Свердлова,<br>Всеволожский район, Ленинградская область</p>
+      <a href="https://2gis.ru/spb/geo/70000001048138346/30.690000,59.786124" target="_blank" rel="noopener" class="btn btn--outline">Показать на карте</a>
+    </section>
+
+    <!-- ===== GUEST FORM ===== -->
+    <section class="section section--dark">
+      <div class="center" style="margin-bottom:34px;">
+        <div class="eyebrow">Анкета гостя</div>
+        <div class="divider"><span class="divider-line"></span><span class="divider-dot"></span><span class="divider-line"></span></div>
+        <p class="body-text" style="max-width:320px;margin:0 auto;color:#a8978a;">Пожалуйста, заполните анкету — это поможет нам всё подготовить к встрече с вами.</p>
+      </div>
+
+      <form id="guest-form" class="form" novalidate>
+        <div class="field">
+          <label class="field-label">Имя и фамилия</label>
+          <input type="text" name="name" id="f-name" placeholder="Например, Анна Петрова" required>
+        </div>
+
+        <div class="field">
+          <label class="field-label">Подтверждение присутствия</label>
+          <div class="option-group" data-group="attend" data-type="radio">
+            <div class="option-row" data-value="Да, с радостью приду"><span class="option-dot"></span><span class="option-label">Да, с радостью приду</span></div>
+            <div class="option-row" data-value="К сожалению, не смогу"><span class="option-dot"></span><span class="option-label">К сожалению, не смогу</span></div>
+            <div class="option-row" data-value="Пока думаю"><span class="option-dot"></span><span class="option-label">Пока думаю</span></div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="field-label">Количество гостей / с кем придёте</label>
+          <input type="text" name="guests" id="f-guests" placeholder="Например, буду с супругом — 2 человека">
+        </div>
+
+        <div class="field">
+          <label class="field-label">Предпочтения по алкоголю</label>
+          <div class="option-group" data-group="alcohol" data-type="checkbox">
+            <div class="option-row" data-value="Вино"><span class="option-box"><span class="option-check">✓</span></span><span class="option-label">Вино</span></div>
+            <div class="option-row" data-value="Шампанское"><span class="option-box"><span class="option-check">✓</span></span><span class="option-label">Шампанское</span></div>
+            <div class="option-row" data-value="Крепкие напитки"><span class="option-box"><span class="option-check">✓</span></span><span class="option-label">Крепкие напитки</span></div>
+            <div class="option-row" data-value="Безалкогольное / не пью"><span class="option-box"><span class="option-check">✓</span></span><span class="option-label">Безалкогольное / не пью</span></div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="field-label">Нужен ли трансфер</label>
+          <div class="option-group" data-group="transfer" data-type="radio">
+            <div class="option-row" data-value="Да, нужен трансфер"><span class="option-dot"></span><span class="option-label">Да, нужен трансфер</span></div>
+            <div class="option-row" data-value="Нет, доберусь сам(а)"><span class="option-dot"></span><span class="option-label">Нет, доберусь сам(а)</span></div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="field-label">Пожелания по меню / аллергии</label>
+          <textarea name="menu" id="f-menu" rows="3" placeholder="Расскажите об особенностях питания или аллергиях"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn--fill" id="f-submit">Отправить анкету</button>
+        <div class="form-error" id="f-error" hidden>Пожалуйста, заполните имя и подтвердите присутствие.</div>
+      </form>
+
+      <div class="thanks" id="thanks" hidden>
+        <div class="thanks-dot"></div>
+        <div class="script-title" style="font-size:34px;">Спасибо!</div>
+        <p class="body-text">Мы получили вашу анкету.<br>До встречи на нашем празднике!</p>
+      </div>
+    </section>
+
+    <!-- ===== DRESS CODE ===== -->
+    <section class="section section--maroon center">
+      <div class="eyebrow">Дресс-код</div>
+      <div class="divider"><span class="divider-line"></span><span class="divider-dot"></span><span class="divider-line"></span></div>
+      <p class="body-text" style="max-width:330px;margin:0 auto 34px;">Мы хотим создать особенную атмосферу праздника и будем благодарны, если вы поддержите нашу палитру при выборе наряда.</p>
+      <div class="palette">
+        <div class="palette-item"><span class="swatch" style="background:#1f5d45;"></span><span class="swatch-label">Изумрудный</span></div>
+        <div class="palette-item"><span class="swatch" style="background:#5a1226;"></span><span class="swatch-label">Бордовый</span></div>
+        <div class="palette-item"><span class="swatch" style="background:#16100f;"></span><span class="swatch-label">Чёрный</span></div>
+        <div class="palette-item"><span class="swatch" style="background:#cdb48c;"></span><span class="swatch-label">Бежевый</span></div>
+      </div>
+    </section>
+
+    <!-- ===== GIFTS ===== -->
+    <section class="section section--green center">
+      <div class="eyebrow">Пожелания по подаркам</div>
+      <div class="divider"><span class="divider-line"></span><span class="divider-dot"></span><span class="divider-line"></span></div>
+      <p class="body-text" style="max-width:340px;margin:0 auto;">Самый ценный подарок для нас — это ваше присутствие рядом в этот день. Если же вам захочется нас порадовать, мы будем благодарны вкладу в наше общее будущее вместо букетов цветов.</p>
+    </section>
+
+    <!-- ===== CLOSING ===== -->
+    <section class="section section--dark center" style="padding:70px 30px 80px;">
+      <div class="closing-title">Ждём вас!</div>
+      <div class="divider" style="width:140px;margin-top:30px;"><span class="divider-line"></span><span class="divider-dot"></span><span class="divider-line"></span></div>
+      <div class="closing-sub">Святослав &amp; Ксения · Август 2027</div>
+    </section>
+
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
