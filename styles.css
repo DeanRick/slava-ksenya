@@ -132,9 +132,11 @@ textarea { resize: vertical; line-height: 1.6; }
 }
 .thanks-dot { width: 10px; height: 10px; background: #c9a96a; transform: rotate(45deg); margin: 0 auto 22px; }
 
-.palette { display: flex; justify-content: center; gap: 14px; }
+.palette { display: flex; justify-content: center; align-items: flex-start; gap: 14px; }
 .palette-item { display: flex; flex-direction: column; align-items: center; gap: 11px; }
-.swatch { width: 58px; height: 58px; border-radius: 50%; box-shadow: 0 0 0 1px rgba(201,169,106,0.3); display: block; }
+.swatch-slot { height: 87px; display: flex; align-items: center; justify-content: center; }
+.swatch { width: 58px; height: 58px; border-radius: 50%; box-shadow: 0 0 0 1px rgba(201,169,106,0.3); display: block; background-size: cover; background-position: center; }
+.swatch--lg { width: 87px; height: 87px; }
 .swatch-label { color: #bdab9c; font-size: 12px; }
 
 .closing-title { font-family: 'Cormorant Garamond', serif; font-style: italic; color: #d8c4a3; font-size: 56px; line-height: 1; }
