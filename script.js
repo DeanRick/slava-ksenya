@@ -106,8 +106,7 @@ form.addEventListener('submit', async (e) => {
         body: JSON.stringify(payload),
       });
     }
-    submitBtn.disabled = false;
-    submitBtn.textContent = 'Отправить анкету';
+    submitBtn.textContent = 'Отправлено';
     form.hidden = true;
     thanksEl.hidden = false;
   } catch (err) {
