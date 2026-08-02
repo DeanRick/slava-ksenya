@@ -59,11 +59,23 @@ const errorEl = document.getElementById('f-error');
 const submitBtn = document.getElementById('f-submit');
 const thanksEl = document.getElementById('thanks');
 
+function isFormComplete(name, allergies) {
+  if (!name || !state.attend || !state.alcoholType || !state.transfer || !state.menuChoice || !allergies || !state.pencil) {
+    return false;
+  }
+  if (state.alcoholType === 'Вино' && (!state.wineColor || !state.wineSweet)) return false;
+  if (state.alcoholType === 'Крепкие напитки' && !state.spirit) return false;
+  return true;
+}
+
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
 
   const name = document.getElementById('f-name').value.trim();
-  if (!name || !state.attend) {
+  const allergies = document.getElementById('f-allergies').value.trim();
+
+  if (!isFormComplete(name, allergies)) {
+    errorEl.textContent = 'Пожалуйста, заполните все пункты анкеты.';
     errorEl.hidden = false;
     return;
   }
@@ -78,7 +90,7 @@ form.addEventListener('submit', async (e) => {
     spirit: state.spirit,
     transfer: state.transfer,
     menuChoice: state.menuChoice,
-    allergies: document.getElementById('f-allergies').value.trim(),
+    allergies,
     pencil: state.pencil,
   };
 
