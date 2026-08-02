@@ -1,8 +1,7 @@
 // Дата свадьбы для обратного отсчёта
 const TARGET_DATE = '2027-08-14T16:00:00';
 
-// TODO: вставить URL веб-приложения Google Apps Script после деплоя
-const SHEETS_ENDPOINT = '';
+const SHEETS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxRhAaeW_EIA4-_xMBxLmzov9STznMYeELo1gVO1KOOQEsosxyTcFvsyk_2cbHoA3TGOg/exec';
 
 function pad(n) {
   return String(n).padStart(2, '0');
