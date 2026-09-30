@@ -82,6 +82,13 @@ body { font-family: 'PT Sans', sans-serif; }
 .eyebrow { font-family: 'Forum', serif; color: #c9a96a; font-size: 16px; letter-spacing: 0.34em; text-transform: uppercase; }
 .label-sm { color: #9fb3a8; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; }
 .venue-name { font-family: 'Cormorant Garamond', serif; font-style: italic; color: #f0e6d6; font-size: 52px; line-height: 1; margin: 8px 0 20px; }
+.venue-hall {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 10px 22px; margin-bottom: 20px; border-radius: 999px;
+  border: 1px solid rgba(201,169,106,0.7); background: rgba(201,169,106,0.14);
+  color: #f0e6d6; font-family: 'Forum', serif; font-size: 15px;
+  letter-spacing: 0.22em; text-transform: uppercase;
+}
 .venue-address { color: #c2d2ca; max-width: 320px; margin: 0 auto; }
 
 .btn {
@@ -100,7 +107,7 @@ body { font-family: 'PT Sans', sans-serif; }
 /* Form */
 .form { display: flex; flex-direction: column; gap: 26px; }
 .field-label { display: block; color: #c9a96a; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 10px; }
-input[type="text"], textarea {
+input[type="text"], input[type="tel"], textarea {
   width: 100%; background: rgba(255,255,255,0.03); border: 1px solid rgba(201,169,106,0.25);
   border-radius: 10px; padding: 14px 16px; color: #ece1d2; font-family: 'PT Sans', sans-serif;
   font-size: 15px; outline: none;

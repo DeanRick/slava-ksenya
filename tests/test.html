@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Тесты script.js</title>
+<style>
+  body { font-family: sans-serif; background: #120a0d; color: #ece1d2; padding: 24px; }
+  #results div { padding: 4px 0; }
+  .pass { color: #7dd68a; }
+  .fail { color: #e08b8b; }
+  #summary { margin-top: 16px; font-weight: bold; }
+  /* DOM-стаб не показываем, но не скрываем через display:none, чтобы hidden-атрибут отрабатывал как в реальной странице */
+  #stub { display: none; }
+</style>
+</head>
+<body>
+
+<h1>Тесты script.js</h1>
+<div id="results"></div>
+<div id="summary"></div>
+
+<!-- ===== DOM-СТАБ: минимальный набор элементов, которые трогает script.js ===== -->
+<div id="stub">
+  <div id="cd-d"></div>
+  <div id="cd-h"></div>
+  <div id="cd-m"></div>
+  <div id="cd-s"></div>
+
+  <form id="guest-form" novalidate>
+    <input type="text" id="f-name">
+    <input type="tel" id="f-phone">
+
+    <div class="option-group" data-group="attend" data-type="radio">
+      <div class="option-row" data-value="Да, с радостью приду"><span class="option-dot"></span><span class="option-label">Да, с радостью приду</span></div>
+      <div class="option-row" data-value="К сожалению, не смогу"><span class="option-dot"></span><span class="option-label">К сожалению, не смогу</span></div>
+      <div class="option-row" data-value="Пока думаю"><span class="option-dot"></span><span class="option-label">Пока думаю</span></div>
+    </div>
+
+    <div class="option-group" data-group="alcoholType" data-type="radio">
+      <div class="option-row" data-value="Вино"><span class="option-dot"></span><span class="option-label">Вино</span></div>
+      <div class="option-row" data-value="Крепкие напитки"><span class="option-dot"></span><span class="option-label">Крепкие напитки</span></div>
+      <div class="option-row" data-value="Безалкогольное / не пью"><span class="option-dot"></span><span class="option-label">Безалкогольное / не пью</span></div>
+    </div>
+
+    <div id="wine-block" hidden>
+      <div class="option-group" data-group="wineColor" data-type="radio">
+        <div class="option-row" data-value="Красное"><span class="option-dot"></span><span class="option-label">Красное</span></div>
+        <div class="option-row" data-value="Белое"><span class="option-dot"></span><span class="option-label">Белое</span></div>
+      </div>
+      <div class="option-group" data-group="wineSweet" data-type="radio">
+        <div class="option-row" data-value="Сухое"><span class="option-dot"></span><span class="option-label">Сухое</span></div>
+        <div class="option-row" data-value="Полусухое"><span class="option-dot"></span><span class="option-label">Полусухое</span></div>
+        <div class="option-row" data-value="Полусладкое"><span class="option-dot"></span><span class="option-label">Полусладкое</span></div>
+      </div>
+    </div>
+
+    <div id="spirit-block" hidden>
+      <div class="option-group" data-group="spirit" data-type="radio">
+        <div class="option-row" data-value="Водка"><span class="option-dot"></span><span class="option-label">Водка</span></div>
+        <div class="option-row" data-value="Коньяк"><span class="option-dot"></span><span class="option-label">Коньяк</span></div>
+        <div class="option-row" data-value="Джин"><span class="option-dot"></span><span class="option-label">Джин</span></div>
+        <div class="option-row" data-value="Виски"><span class="option-dot"></span><span class="option-label">Виски</span></div>
+        <div class="option-row" data-value="Ром"><span class="option-dot"></span><span class="option-label">Ром</span></div>
+      </div>
+    </div>
+
+    <div class="option-group" data-group="transfer" data-type="radio">
+      <div class="option-row" data-value="Да, нужен трансфер"><span class="option-dot"></span><span class="option-label">Да, нужен трансфер</span></div>
+      <div class="option-row" data-value="Нет, доберусь сам(а)"><span class="option-dot"></span><span class="option-label">Нет, доберусь сам(а)</span></div>
+    </div>
+
+    <div class="option-group" data-group="menuChoice" data-type="radio">
+      <div class="option-row" data-value="Рыба"><span class="option-dot"></span><span class="option-label">Рыба</span></div>
+      <div class="option-row" data-value="Мясо"><span class="option-dot"></span><span class="option-label">Мясо</span></div>
+    </div>
+
+    <textarea id="f-allergies"></textarea>
+
+    <div class="option-group" data-group="pencil" data-type="radio" data-pencil-joke="true">
+      <div class="option-row" data-value="Да"><span class="option-dot"></span><span class="option-label">Да</span></div>
+      <div class="option-row" data-value="Конечно, да!"><span class="option-dot"></span><span class="option-label">Конечно, да!</span></div>
+      <div class="option-row" data-value="Нет"><span class="option-dot"></span><span class="option-label">Нет</span></div>
+    </div>
+
+    <button type="submit" id="f-submit">Отправить анкету</button>
+    <div id="f-error" hidden></div>
+  </form>
+
+  <div id="thanks" hidden></div>
+</div>
+
+<!-- Сам тестируемый скрипт: top-level const/function становятся видны следующему <script> на этой же странице -->
+<script src="../script.js"></script>
+
+<script>
+(function () {
+  const resultsEl = document.getElementById('results');
+  const summaryEl = document.getElementById('summary');
+  let passed = 0;
+  let total = 0;
+
+  function assert(name, cond) {
+    total++;
+    if (cond) passed++;
+    const row = document.createElement('div');
+    row.className = cond ? 'pass' : 'fail';
+    row.textContent = (cond ? '✅ ' : '❌ ') + name;
+    resultsEl.appendChild(row);
+  }
+
+  function clickOption(groupEl, value) {
+    const row = [...groupEl.querySelectorAll('.option-row')].find(r => r.dataset.value === value);
+    row.click();
+  }
+
+  function resetState() {
+    Object.keys(state).forEach(k => { state[k] = ''; });
+    document.querySelectorAll('.option-row.selected').forEach(r => r.classList.remove('selected'));
+    updateAlcoholBlocks();
+  }
+
+  // 1. pad()
+  assert('pad(5) === "05"', pad(5) === '05');
+  assert('pad(12) === "12"', pad(12) === '12');
+
+  // 2. Радио-группы — базовый выбор
+  resetState();
+  const attendGroup = document.querySelector('.option-group[data-group="attend"]');
+  clickOption(attendGroup, 'Да, с радостью приду');
+  assert('Клик по radio-варианту обновляет state', state.attend === 'Да, с радостью приду');
+  assert('Клик по radio-варианту проставляет класс selected', attendGroup.querySelector('[data-value="Да, с радостью приду"]').classList.contains('selected'));
+
+  // 3. Шутка про карандаш-бутылку
+  resetState();
+  const pencilGroup = document.querySelector('.option-group[data-group="pencil"]');
+  clickOption(pencilGroup, 'Нет');
+  assert('Клик по «Нет» в шутке записывает "Конечно, да!"', state.pencil === 'Конечно, да!');
+  assert('Ряд «Конечно, да!» подсвечен selected', pencilGroup.querySelector('[data-value="Конечно, да!"]').classList.contains('selected'));
+  assert('Ряд «Нет» НЕ подсвечен selected', !pencilGroup.querySelector('[data-value="Нет"]').classList.contains('selected'));
+
+  // 4. Алкогольные подблоки
+  resetState();
+  const alcoholGroup = document.querySelector('.option-group[data-group="alcoholType"]');
+  const wineBlock = document.getElementById('wine-block');
+  const spiritBlock = document.getElementById('spirit-block');
+
+  clickOption(alcoholGroup, 'Вино');
+  assert('Выбор «Вино» показывает wine-block', wineBlock.hidden === false);
+  assert('Выбор «Вино» скрывает spirit-block', spiritBlock.hidden === true);
+
+  clickOption(alcoholGroup, 'Крепкие напитки');
+  assert('Выбор «Крепкие напитки» показывает spirit-block', spiritBlock.hidden === false);
+  assert('Выбор «Крепкие напитки» скрывает wine-block', wineBlock.hidden === true);
+
+  clickOption(alcoholGroup, 'Безалкогольное / не пью');
+  assert('Выбор «Безалкогольное» скрывает оба подблока', wineBlock.hidden === true && spiritBlock.hidden === true);
+
+  // 5. isFormComplete
+  resetState();
+  assert('isFormComplete: пусто -> false', isFormComplete('', '') === false);
+  assert('isFormComplete: есть имя, нет телефона -> false', isFormComplete('Анна Петрова', '') === false);
+
+  state.attend = 'Да, с радостью приду';
+  state.alcoholType = 'Безалкогольное / не пью';
+  state.transfer = 'Нет, доберусь сам(а)';
+  state.menuChoice = 'Мясо';
+  state.pencil = 'Да';
+  assert('isFormComplete: всё заполнено (без вина/крепкого) -> true', isFormComplete('Анна Петрова', '+79000000000') === true);
+
+  state.alcoholType = 'Вино';
+  assert('isFormComplete: выбрано «Вино» без цвета/сухости -> false', isFormComplete('Анна Петрова', '+79000000000') === false);
+  state.wineColor = 'Красное';
+  state.wineSweet = 'Сухое';
+  assert('isFormComplete: «Вино» с цветом и сухостью -> true', isFormComplete('Анна Петрова', '+79000000000') === true);
+
+  state.alcoholType = 'Крепкие напитки';
+  assert('isFormComplete: «Крепкие напитки» без вида -> false', isFormComplete('Анна Петрова', '+79000000000') === false);
+  state.spirit = 'Виски';
+  assert('isFormComplete: «Крепкие напитки» с видом -> true', isFormComplete('Анна Петрова', '+79000000000') === true);
+
+  // 6. Сабмит формы
+  resetState();
+  document.getElementById('f-name').value = 'Иван Иванов';
+  document.getElementById('f-phone').value = '+79111234567';
+  clickOption(document.querySelector('.option-group[data-group="attend"]'), 'Да, с радостью приду');
+  clickOption(document.querySelector('.option-group[data-group="alcoholType"]'), 'Безалкогольное / не пью');
+  clickOption(document.querySelector('.option-group[data-group="transfer"]'), 'Нет, доберусь сам(а)');
+  clickOption(document.querySelector('.option-group[data-group="menuChoice"]'), 'Мясо');
+  clickOption(document.querySelector('.option-group[data-group="pencil"]'), 'Да');
+
+  let fetchCalls = [];
+  const originalFetch = window.fetch;
+  window.fetch = function (url, opts) {
+    fetchCalls.push({ url, opts });
+    return Promise.resolve({ ok: true });
+  };
+
+  const form = document.getElementById('guest-form');
+  const thanksEl = document.getElementById('thanks');
+
+  form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
+
+  // submit-обработчик асинхронный (await fetch) — ждём следующий тик
+  setTimeout(() => {
+    assert('Сабмит вызывает fetch ровно один раз', fetchCalls.length === 1);
+    const body = fetchCalls[0] ? JSON.parse(fetchCalls[0].opts.body) : {};
+    assert('Payload содержит введённый телефон', body.phone === '+79111234567');
+    assert('Payload содержит введённое имя', body.name === 'Иван Иванов');
+    assert('После успешного сабмита показывается блок thanks', thanksEl.hidden === false);
+
+    window.fetch = originalFetch;
+
+    summaryEl.textContent = `Итог: ${passed}/${total} пройдено`;
+    summaryEl.className = passed === total ? 'pass' : 'fail';
+  }, 0);
+})();
+</script>
+
+</body>
+</html>
