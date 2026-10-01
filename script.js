@@ -53,6 +53,24 @@ document.querySelectorAll('.option-group').forEach(group => {
   });
 });
 
+// Карусель палитры дресс-кода
+const paletteCarousel = document.getElementById('palette-carousel');
+if (paletteCarousel) {
+  const paletteCards = paletteCarousel.querySelectorAll('.palette-card');
+  const paletteDots = document.querySelectorAll('#palette-dots .palette-dot');
+
+  const paletteObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const index = [...paletteCards].indexOf(entry.target);
+        paletteDots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+      }
+    });
+  }, { root: paletteCarousel, threshold: 0.6 });
+
+  paletteCards.forEach((card) => paletteObserver.observe(card));
+}
+
 // Отправка анкеты
 const form = document.getElementById('guest-form');
 const errorEl = document.getElementById('f-error');
