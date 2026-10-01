@@ -91,6 +91,12 @@ body { font-family: 'PT Sans', sans-serif; }
 }
 .venue-address { color: #c2d2ca; max-width: 320px; margin: 0 auto; }
 
+.schedule { display: flex; flex-direction: column; max-width: 280px; margin: 0 auto; text-align: left; }
+.schedule-item { display: flex; align-items: baseline; gap: 18px; padding: 18px 0; border-bottom: 1px solid rgba(201,169,106,0.18); }
+.schedule-item:last-child { border-bottom: none; }
+.schedule-time { font-family: 'Forum', serif; color: #c9a96a; font-size: 20px; letter-spacing: 0.04em; flex: none; width: 64px; }
+.schedule-label { color: #ece1d2; font-size: 15px; }
+
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 10px;
   margin-top: 28px; padding: 15px 32px; border-radius: 999px;
