@@ -168,10 +168,7 @@ textarea { resize: vertical; line-height: 1.6; }
 }
 .thanks-dot { width: 10px; height: 10px; background: #c9a96a; transform: rotate(45deg); margin: 0 auto 22px; }
 
-.dresscode-img {
-  width: 100%; max-width: 320px; border-radius: 18px;
-  box-shadow: 0 0 0 1px rgba(201,169,106,0.4), 0 20px 46px rgba(0,0,0,0.5);
-}
+.dresscode-img { width: 100%; max-width: 320px; }
 
 .closing-title { font-family: 'Cormorant Garamond', serif; font-style: italic; color: #d8c4a3; font-size: 56px; line-height: 1; }
 .closing-sub { font-family: 'Forum', serif; color: #9a8a7d; font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; margin-top: 26px; }
