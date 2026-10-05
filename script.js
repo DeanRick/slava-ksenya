@@ -53,37 +53,6 @@ document.querySelectorAll('.option-group').forEach(group => {
   });
 });
 
-// Карусель палитры дресс-кода
-const paletteCarousel = document.getElementById('palette-carousel');
-if (paletteCarousel) {
-  const paletteCards = [...paletteCarousel.querySelectorAll('.palette-card')];
-  const paletteDots = [...document.querySelectorAll('#palette-dots .palette-dot')];
-  const prevArrow = document.querySelector('.palette-arrow--prev');
-  const nextArrow = document.querySelector('.palette-arrow--next');
-
-  let paletteIndex = 0;
-
-  function scrollToPalette(index) {
-    const target = paletteCards[Math.max(0, Math.min(paletteCards.length - 1, index))];
-    target.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-  }
-
-  const paletteObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        paletteIndex = paletteCards.indexOf(entry.target);
-        paletteCards.forEach((card, i) => card.classList.toggle('is-active', i === paletteIndex));
-        paletteDots.forEach((dot, i) => dot.classList.toggle('active', i === paletteIndex));
-      }
-    });
-  }, { root: paletteCarousel, threshold: 0.6 });
-
-  paletteCards.forEach((card) => paletteObserver.observe(card));
-  paletteDots.forEach((dot, i) => dot.addEventListener('click', () => scrollToPalette(i)));
-  if (prevArrow) prevArrow.addEventListener('click', () => scrollToPalette(paletteIndex - 1));
-  if (nextArrow) nextArrow.addEventListener('click', () => scrollToPalette(paletteIndex + 1));
-}
-
 // Отправка анкеты
 const form = document.getElementById('guest-form');
 const errorEl = document.getElementById('f-error');
