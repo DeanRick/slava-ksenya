@@ -3,6 +3,16 @@ const TARGET_DATE = '2027-08-14T16:00:00';
 
 const SHEETS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxRhAaeW_EIA4-_xMBxLmzov9STznMYeELo1gVO1KOOQEsosxyTcFvsyk_2cbHoA3TGOg/exec';
 const FORM_TOKEN = 'deaae49b574ebac9cc2e27cb99b6a7a1c76348263cbde8dc';
+const RECAPTCHA_SITE_KEY = '6Lfn7OAtAAAAABQyjv0iD5N-5kvRhlBTNGX9OBjZ';
+
+function getRecaptchaToken() {
+  return new Promise((resolve) => {
+    if (typeof grecaptcha === 'undefined') { resolve(''); return; }
+    grecaptcha.ready(() => {
+      grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'submit' }).then(resolve).catch(() => resolve(''));
+    });
+  });
+}
 
 function pad(n) {
   return String(n).padStart(2, '0');
@@ -83,8 +93,11 @@ form.addEventListener('submit', async (e) => {
   }
   errorEl.hidden = true;
 
+  const recaptchaToken = await getRecaptchaToken();
+
   const payload = {
     token: FORM_TOKEN,
+    recaptchaToken,
     name,
     phone,
     attend: state.attend,
