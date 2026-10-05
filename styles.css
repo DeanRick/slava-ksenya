@@ -48,9 +48,15 @@ body { font-family: 'PT Sans', sans-serif; }
 .hero-date { font-family: 'Cormorant Garamond', serif; font-style: italic; color: #d8c4a3; font-size: 23px; margin-top: 14px; letter-spacing: 0.04em; }
 
 /* Sections */
-.section { padding: 62px 30px; }
+.section { position: relative; padding: 62px 30px; }
 .section--maroon { background: #2a0c16; }
 .section--dark { background: #120a0d; }
+
+.section-fade {
+  position: absolute; top: 0; left: 0; right: 0; height: 110px;
+  background: linear-gradient(to bottom, var(--fade-from), transparent);
+  pointer-events: none;
+}
 
 .divider { display: flex; align-items: center; justify-content: center; gap: 14px; margin: 0 auto 26px; width: 130px; }
 .divider-line { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(201,169,106,0.55)); }
