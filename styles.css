@@ -53,13 +53,23 @@ body { font-family: 'PT Sans', sans-serif; }
 .section--dark { background: #120a0d; }
 
 .section-fade {
-  position: absolute; top: 0; left: 0; right: 0; height: 110px;
-  background: linear-gradient(to bottom, var(--fade-from), transparent);
+  position: absolute; top: 0; left: 0; right: 0; height: 190px;
+  background: linear-gradient(to bottom,
+    var(--fade-from) 0%,
+    color-mix(in srgb, var(--fade-from) 75%, transparent) 25%,
+    color-mix(in srgb, var(--fade-from) 35%, transparent) 55%,
+    color-mix(in srgb, var(--fade-from) 10%, transparent) 80%,
+    transparent 100%);
   pointer-events: none;
 }
 .section-fade--bottom {
-  top: auto; bottom: 0; height: 160px;
-  background: linear-gradient(to top, var(--fade-to), transparent);
+  top: auto; bottom: 0; height: 260px;
+  background: linear-gradient(to top,
+    var(--fade-to) 0%,
+    color-mix(in srgb, var(--fade-to) 75%, transparent) 25%,
+    color-mix(in srgb, var(--fade-to) 35%, transparent) 55%,
+    color-mix(in srgb, var(--fade-to) 10%, transparent) 80%,
+    transparent 100%);
 }
 
 .divider { display: flex; align-items: center; justify-content: center; gap: 14px; margin: 0 auto 26px; width: 130px; }
