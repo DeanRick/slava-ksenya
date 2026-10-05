@@ -57,6 +57,10 @@ body { font-family: 'PT Sans', sans-serif; }
   background: linear-gradient(to bottom, var(--fade-from), transparent);
   pointer-events: none;
 }
+.section-fade--bottom {
+  top: auto; bottom: 0; height: 160px;
+  background: linear-gradient(to top, var(--fade-to), transparent);
+}
 
 .divider { display: flex; align-items: center; justify-content: center; gap: 14px; margin: 0 auto 26px; width: 130px; }
 .divider-line { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(201,169,106,0.55)); }
