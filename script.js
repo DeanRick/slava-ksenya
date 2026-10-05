@@ -2,6 +2,7 @@
 const TARGET_DATE = '2027-08-14T16:00:00';
 
 const SHEETS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxRhAaeW_EIA4-_xMBxLmzov9STznMYeELo1gVO1KOOQEsosxyTcFvsyk_2cbHoA3TGOg/exec';
+const FORM_TOKEN = 'deaae49b574ebac9cc2e27cb99b6a7a1c76348263cbde8dc';
 
 function pad(n) {
   return String(n).padStart(2, '0');
@@ -83,6 +84,7 @@ form.addEventListener('submit', async (e) => {
   errorEl.hidden = true;
 
   const payload = {
+    token: FORM_TOKEN,
     name,
     phone,
     attend: state.attend,
