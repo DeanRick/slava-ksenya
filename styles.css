@@ -53,22 +53,23 @@ body { font-family: 'PT Sans', sans-serif; }
 .section--dark { background: #120a0d; }
 
 .section-fade {
-  position: absolute; top: 0; left: 0; right: 0; height: 190px;
+  position: absolute; top: -40px; left: 0; right: 0; height: 280px;
   background: linear-gradient(to bottom,
-    var(--fade-from) 0%,
-    color-mix(in srgb, var(--fade-from) 75%, transparent) 25%,
-    color-mix(in srgb, var(--fade-from) 35%, transparent) 55%,
-    color-mix(in srgb, var(--fade-from) 10%, transparent) 80%,
+    color-mix(in srgb, var(--fade-from) 55%, transparent) 15%,
+    color-mix(in srgb, var(--fade-from) 30%, transparent) 40%,
+    color-mix(in srgb, var(--fade-from) 12%, transparent) 65%,
+    color-mix(in srgb, var(--fade-from) 4%, transparent) 85%,
     transparent 100%);
+  filter: blur(22px);
   pointer-events: none;
 }
 .section-fade--bottom {
-  top: auto; bottom: 0; height: 260px;
+  top: auto; bottom: 0; height: 340px;
   background: linear-gradient(to top,
-    var(--fade-to) 0%,
-    color-mix(in srgb, var(--fade-to) 75%, transparent) 25%,
-    color-mix(in srgb, var(--fade-to) 35%, transparent) 55%,
-    color-mix(in srgb, var(--fade-to) 10%, transparent) 80%,
+    color-mix(in srgb, var(--fade-to) 55%, transparent) 15%,
+    color-mix(in srgb, var(--fade-to) 30%, transparent) 40%,
+    color-mix(in srgb, var(--fade-to) 12%, transparent) 65%,
+    color-mix(in srgb, var(--fade-to) 4%, transparent) 85%,
     transparent 100%);
 }
 
