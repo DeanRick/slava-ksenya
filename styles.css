@@ -96,7 +96,7 @@ body { font-family: 'PT Sans', sans-serif; }
 .section-bg-overlay--green { background: linear-gradient(180deg, rgba(12,36,29,0.88) 0%, rgba(12,36,29,0.8) 40%, rgba(12,36,29,0.92) 100%); }
 .section-content { position: relative; }
 
-.script-quote { font-family: 'Cormorant Garamond', serif; font-style: italic; color: #d8c4a3; font-size: 19px; line-height: 1.75; max-width: 340px; margin: 0 auto 26px; text-wrap: pretty; }
+.script-quote { font-family: 'Cormorant Garamond', serif; font-style: italic; color: #d8c4a3; font-size: 21px; line-height: 1.75; max-width: 340px; margin: 0 auto 26px; text-wrap: pretty; }
 .mini-divider { width: 36px; height: 1px; background: rgba(201,169,106,0.35); margin: 0 auto 20px; }
 
 .eyebrow { font-family: 'Forum', serif; color: #c9a96a; font-size: 16px; letter-spacing: 0.34em; text-transform: uppercase; }
