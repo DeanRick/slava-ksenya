@@ -102,6 +102,7 @@ body { font-family: 'PT Sans', sans-serif; }
 .schedule-item:last-child { border-bottom: none; }
 .schedule-time { font-family: 'Forum', serif; color: #c9a96a; font-size: 20px; letter-spacing: 0.04em; flex: none; width: 64px; }
 .schedule-label { color: #ece1d2; font-size: 15px; }
+.schedule-note { margin-top: 14px; color: #6e6058; font-size: 11px; letter-spacing: 0.04em; }
 
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 10px;
