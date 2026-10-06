@@ -3,7 +3,7 @@ html, body { background: #0a0608; }
 input::placeholder, textarea::placeholder { color: rgba(154,138,125,0.55); }
 input:focus, textarea:focus { border-color: rgba(201,169,106,0.6) !important; }
 
-body { font-family: 'PT Sans', sans-serif; }
+body { font-family: 'Poiret One', sans-serif; font-size: 18.5px; }
 
 .page {
   min-height: 100vh;
@@ -40,16 +40,34 @@ body { font-family: 'PT Sans', sans-serif; }
 }
 .hero-eyebrow {
   position: absolute; top: 34px; left: 0; right: 0; text-align: center;
-  color: #c9a96a; font-size: 12px; letter-spacing: 0.42em; text-transform: uppercase;
+  font-family: 'Felidae', serif; text-transform: uppercase;
+  color: #c9a96a; font-size: 12px; letter-spacing: 0.42em;
 }
-.hero-text { position: absolute; left: 0; right: 0; bottom: 46px; text-align: center; padding: 0 24px; }
-.hero-name { font-family: 'Forum', serif; color: #f0e6d6; font-size: 42px; line-height: 1.04; letter-spacing: 0.16em; text-transform: uppercase; }
-.hero-amp { font-family: 'Cormorant Garamond', serif; font-style: italic; color: #c9a96a; font-size: 40px; line-height: 0.9; margin: 2px 0; }
-.hero-date { font-family: 'Cormorant Garamond', serif; font-style: italic; color: #d8c4a3; font-size: 23px; margin-top: 14px; letter-spacing: 0.04em; }
+.hero-text { position: absolute; left: 0; right: 0; bottom: 16px; text-align: center; padding: 0 24px; }
+.hero-name { position: relative; z-index: 1; font-family: 'Felidae', serif; color: #f0e6d6; font-size: 50px; line-height: 1.04; letter-spacing: 0.16em; text-transform: uppercase; }
+.hero-amp {
+  position: absolute; left: 50%; top: 30%; transform: translate(-50%, -50%);
+  z-index: 0; pointer-events: none;
+  font-family: 'Cormorant Garamond', serif; font-style: italic; color: #c9a96a; opacity: 0.4;
+  font-size: 150px; line-height: 1; margin: 0;
+}
+.hero-date { font-family: 'Cormorant Garamond', serif; font-style: italic; color: #d8c4a3; font-size: 23px; margin-top: 14px; letter-spacing: 0.02em; }
 
 /* Sections */
 .section { position: relative; padding: 62px 30px; }
-.section--maroon { background: #2a0c16; }
+.section--maroon {
+  position: relative; z-index: 0;
+  background: #2a0c16 url('assets/maroon-texture.jpg') center / cover no-repeat;
+}
+.section--maroon::before {
+  content: '';
+  position: absolute; inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.15)),
+    linear-gradient(to bottom, transparent 0%, transparent 55%, rgba(18,10,13,0.65) 85%, #120a0d 100%);
+}
 .section--dark { background: #120a0d; }
 
 .section-fade {
@@ -72,16 +90,16 @@ body { font-family: 'PT Sans', sans-serif; }
     transparent 100%);
 }
 
-.divider { display: flex; align-items: center; justify-content: center; gap: 14px; margin: 0 auto 26px; width: 130px; }
+.divider { display: flex; align-items: center; justify-content: center; gap: 14px; margin: 8px auto 26px; width: 130px; }
 .divider-line { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(201,169,106,0.55)); }
 .divider-line:last-child { background: linear-gradient(90deg, rgba(201,169,106,0.55), transparent); }
-.divider-dot { width: 6px; height: 6px; background: #c9a96a; transform: rotate(45deg); }
+.divider-dot { width: 4px; height: 4px; background: #c9a96a; transform: rotate(45deg); }
 
-.script-title { font-family: 'Cormorant Garamond', serif; font-style: italic; color: #d8c4a3; font-size: 38px; font-weight: 500; line-height: 1.1; }
-.body-text { color: #cdbdae; font-size: 15.5px; line-height: 1.85; margin-top: 22px; text-wrap: pretty; }
+.script-title { font-family: 'Felidae', serif; text-transform: uppercase; color: #d8c4a3; font-size: 38px; font-weight: 500; line-height: 1.1; }
+.body-text { color: #cdbdae; font-size: 18.5px; line-height: 1.85; margin-top: 22px; text-wrap: pretty; }
 .signature { font-family: 'Cormorant Garamond', serif; font-style: italic; color: #c9a96a; font-size: 20px; margin-top: 24px; }
 
-.script-sub { font-family: 'Cormorant Garamond', serif; font-style: italic; color: #c9a96a; font-size: 24px; margin-bottom: 26px; }
+.script-sub { font-family: 'Felidae', serif; text-transform: uppercase; color: #c9a96a; font-size: 24px; margin-bottom: 26px; }
 .countdown { display: flex; justify-content: center; gap: 10px; }
 .countdown-cell { flex: 1; max-width: 92px; border: 1px solid rgba(201,169,106,0.22); border-radius: 12px; padding: 16px 6px; background: rgba(255,255,255,0.02); }
 .countdown-num { font-family: 'Forum', serif; color: #f0e6d6; font-size: 34px; line-height: 1; }
@@ -96,30 +114,49 @@ body { font-family: 'PT Sans', sans-serif; }
 .section-bg-overlay--green { background: linear-gradient(180deg, rgba(12,36,29,0.88) 0%, rgba(12,36,29,0.8) 40%, rgba(12,36,29,0.92) 100%); }
 .section-content { position: relative; }
 
-.script-quote { font-family: 'Cormorant Garamond', serif; font-style: italic; color: #d8c4a3; font-size: 21px; line-height: 1.75; max-width: 340px; margin: 0 auto 26px; text-wrap: pretty; }
+.script-quote { font-family: 'Poiret One', sans-serif; font-style: italic; color: #d8c4a3; font-size: 18.5px; line-height: 1.75; max-width: 340px; margin: 0 auto 26px; text-wrap: pretty; }
 .mini-divider { width: 36px; height: 1px; background: rgba(201,169,106,0.35); margin: 0 auto 20px; }
 
-.eyebrow { font-family: 'Forum', serif; color: #c9a96a; font-size: 16px; letter-spacing: 0.34em; text-transform: uppercase; }
-.venue-name { font-family: 'Cormorant Garamond', serif; font-style: italic; color: #f0e6d6; font-size: 52px; line-height: 1; margin: 8px 0 20px; }
+.eyebrow { font-family: 'Felidae', serif; font-weight: 400; color: #c9a96a; font-size: 24px; letter-spacing: 0.34em; text-transform: uppercase; }
+.venue-name { font-family: 'Felidae', serif; text-transform: uppercase; color: #f0e6d6; font-size: 52px; line-height: 1; margin: 8px 0 20px; }
 .venue-hall {
   margin-bottom: 20px;
-  color: #c9a96a; font-family: 'Forum', serif; font-size: 15px;
+  color: #c9a96a; font-family: 'Felidae', serif; font-size: 15px;
   letter-spacing: 0.22em; text-transform: uppercase;
 }
 
+.schedule-frame { position: relative; width: 100%; max-width: 380px; aspect-ratio: 675 / 1200; margin: 0 auto; }
+.schedule-frame-art {
+  position: absolute; inset: 0;
+  pointer-events: none;
+  background-color: #c9a96a;
+  mask-image: url('assets/schedule-frame.jpg');
+  -webkit-mask-image: url('assets/schedule-frame.jpg');
+  mask-size: 100% 100%;
+  -webkit-mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-mode: luminance;
+  -webkit-mask-source-type: luminance;
+}
+.schedule-frame-content {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 56px 40px;
+}
 .schedule { display: flex; flex-direction: column; max-width: 280px; margin: 0 auto; text-align: left; }
 .schedule-item { display: flex; align-items: baseline; gap: 18px; padding: 18px 0; border-bottom: 1px solid rgba(201,169,106,0.18); }
 .schedule-item:last-child { border-bottom: none; }
 .schedule-time { font-family: 'Forum', serif; color: #c9a96a; font-size: 20px; letter-spacing: 0.04em; flex: none; width: 64px; }
-.schedule-label { color: #ece1d2; font-size: 15px; }
+.schedule-label { color: #ece1d2; font-size: 18.5px; }
 .schedule-note { margin-top: 14px; color: #6e6058; font-size: 11px; letter-spacing: 0.04em; }
 
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 10px;
   margin-top: 28px; padding: 15px 32px; border-radius: 999px;
-  font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase;
+  font-size: 18.5px; letter-spacing: 0.16em; text-transform: uppercase;
   text-decoration: none; cursor: pointer; border: none;
-  font-family: 'PT Sans', sans-serif;
+  font-family: 'Poiret One', sans-serif;
 }
 .btn--outline { border: 1px solid rgba(201,169,106,0.55); background: rgba(201,169,106,0.06); color: #ece1d2; }
 .btn--outline:hover { background: rgba(201,169,106,0.16); }
@@ -132,8 +169,8 @@ body { font-family: 'PT Sans', sans-serif; }
 .field-label { display: block; color: #c9a96a; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 10px; }
 input[type="text"], input[type="tel"], textarea {
   width: 100%; background: rgba(255,255,255,0.03); border: 1px solid rgba(201,169,106,0.25);
-  border-radius: 10px; padding: 14px 16px; color: #ece1d2; font-family: 'PT Sans', sans-serif;
-  font-size: 15px; outline: none;
+  border-radius: 10px; padding: 14px 16px; color: #ece1d2; font-family: 'Poiret One', sans-serif;
+  font-size: 16px; outline: none;
 }
 textarea { resize: vertical; line-height: 1.6; }
 
@@ -144,7 +181,7 @@ textarea { resize: vertical; line-height: 1.6; }
   border: 1px solid rgba(201,169,106,0.28); background: rgba(255,255,255,0.02);
 }
 .option-row.selected { border-color: #c9a96a; background: rgba(201,169,106,0.09); }
-.option-label { color: #ece1d2; font-size: 15px; }
+.option-label { color: #ece1d2; font-size: 16px; }
 
 .option-dot {
   width: 16px; height: 16px; border-radius: 50%; flex: none;
@@ -173,8 +210,8 @@ textarea { resize: vertical; line-height: 1.6; }
 }
 .dresscode-swatch:first-child { margin-left: 0; }
 
-.closing-title { font-family: 'Cormorant Garamond', serif; font-style: italic; color: #d8c4a3; font-size: 56px; line-height: 1; }
-.closing-sub { font-family: 'Forum', serif; color: #9a8a7d; font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; margin-top: 26px; }
+.closing-title { font-family: 'Felidae', serif; text-transform: uppercase; color: #d8c4a3; font-size: 56px; line-height: 1; }
+.closing-sub { font-family: 'Cormorant Garamond', serif; font-style: italic; color: #9a8a7d; font-size: 16px; letter-spacing: 0.02em; margin-top: 26px; }
 
 .contact-row { display: flex; justify-content: center; gap: 22px; margin-top: 26px; }
 .contact-btn {

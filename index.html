@@ -8,6 +8,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Forum&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/felidae" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/poiret-one" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <script src="https://www.google.com/recaptcha/api.js?render=6Lfn7OAtAAAAABQyjv0iD5N-5kvRhlBTNGX9OBjZ" async defer></script>
 </head>
@@ -29,17 +31,17 @@
     </div>
 
     <!-- ===== INVITATION ===== -->
-    <section class="section section--maroon center">
+    <section class="section section--maroon center" style="padding-top:34px;padding-bottom:30px;">
       <div class="section-fade" style="--fade-from:#0a0608;"></div>
-      <div class="divider"><span class="divider-line"></span><span class="divider-dot"></span><span class="divider-line"></span></div>
-      <h2 class="script-title">Дорогие гости!</h2>
-      <p class="body-text" style="max-width:340px;margin-left:auto;margin-right:auto;">С большой радостью приглашаем вас разделить с нами один из самых важных дней нашей жизни — день нашей свадьбы. Будем счастливы видеть вас среди самых близких и дорогих нам людей <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#c9a96a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></p>
+      <div class="divider" style="margin-top:20px;"><span class="divider-line"></span><span class="divider-dot"></span><span class="divider-line"></span></div>
+      <h2 class="script-title" style="font-size:30px;color:#c9a96a;">Дорогие гости!</h2>
+      <p class="body-text" style="max-width:340px;margin-left:auto;margin-right:auto;">С большой радостью приглашаем вас разделить с нами один из самых важных дней нашей жизни — день нашей свадьбы. Будем счастливы видеть вас среди самых близких и дорогих нам людей <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#cdbdae" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></p>
       <div class="signature">— Святослав и Ксения</div>
     </section>
 
     <!-- ===== COUNTDOWN ===== -->
     <section class="section section--dark center">
-      <div class="section-fade" style="--fade-from:#2a0c16;"></div>
+      <div class="section-fade" style="--fade-from:#120a0d;"></div>
       <div class="script-sub">До нашего праздника осталось</div>
       <div class="countdown">
         <div class="countdown-cell"><div class="countdown-num" id="cd-d">—</div><div class="countdown-label">дней</div></div>
@@ -65,25 +67,30 @@
     </section>
 
     <!-- ===== SCHEDULE ===== -->
-    <section class="section section--dark center">
+    <section class="section section--dark center" style="padding-top:14px;padding-bottom:14px;">
       <div class="section-fade" style="--fade-from:#120a0d;"></div>
-      <div class="eyebrow">Программа дня</div>
-      <div class="divider"><span class="divider-line"></span><span class="divider-dot"></span><span class="divider-line"></span></div>
-      <div class="schedule">
-        <div class="schedule-item">
-          <div class="schedule-time">16:00</div>
-          <div class="schedule-label">Начало фуршета</div>
-        </div>
-        <div class="schedule-item">
-          <div class="schedule-time">16:30</div>
-          <div class="schedule-label">Выездная регистрация</div>
-        </div>
-        <div class="schedule-item">
-          <div class="schedule-time">17:00</div>
-          <div class="schedule-label">Банкет</div>
+      <div class="schedule-frame">
+        <div class="schedule-frame-art"></div>
+        <div class="schedule-frame-content">
+          <div class="eyebrow">Программа дня</div>
+          <div class="divider"><span class="divider-line"></span><span class="divider-dot"></span><span class="divider-line"></span></div>
+          <div class="schedule">
+            <div class="schedule-item">
+              <div class="schedule-time">16:00</div>
+              <div class="schedule-label">Начало фуршета</div>
+            </div>
+            <div class="schedule-item">
+              <div class="schedule-time">16:30</div>
+              <div class="schedule-label">Выездная регистрация</div>
+            </div>
+            <div class="schedule-item">
+              <div class="schedule-time">17:00</div>
+              <div class="schedule-label">Банкет</div>
+            </div>
+          </div>
+          <div class="schedule-note">(Будет дополняться)</div>
         </div>
       </div>
-      <div class="schedule-note">(Будет дополняться)</div>
     </section>
 
     <!-- ===== DETAILS ===== -->
@@ -100,7 +107,7 @@
 
     <!-- ===== GUEST FORM ===== -->
     <section class="section section--dark">
-      <div class="section-fade" style="--fade-from:#2a0c16;"></div>
+      <div class="section-fade" style="--fade-from:#120a0d;"></div>
       <div class="center" style="margin-bottom:34px;">
         <div class="eyebrow">Анкета гостя</div>
         <div class="divider"><span class="divider-line"></span><span class="divider-dot"></span><span class="divider-line"></span></div>
@@ -213,7 +220,7 @@
       <div class="divider"><span class="divider-line"></span><span class="divider-dot"></span><span class="divider-line"></span></div>
       <p class="script-quote" style="max-width:330px;margin:0 auto 34px;">Мы будем рады видеть вас в нарядах бордового и изумрудного оттенков.</p>
       <img src="assets/dresscode-palette.jpg" alt="Палитра дресс-кода" class="dresscode-img" onerror="this.style.display='none'">
-      <p class="script-quote" style="max-width:330px;margin:34px auto 0;">Вы также можете отдать предпочтение классическим цветам, дополнив образ акцентами из нашей палитры — аксессуарами, обувью, галстуком или украшениями.</p>
+      <p class="script-quote" style="max-width:330px;margin:34px auto 0;">Вы также можете отдать предпочтение классическим цветам, дополнив образ акцентами бордовых и изумрудных оттенков — аксессуарами, обувью, галстуком или украшениями.</p>
       <div class="dresscode-swatches">
         <span class="dresscode-swatch" style="background:#000000;"></span>
         <span class="dresscode-swatch" style="background:#4A3224;"></span>
@@ -225,9 +232,9 @@
 
     <!-- ===== CLOSING ===== -->
     <section class="section section--dark center" style="padding:70px 30px 80px;">
-      <div class="section-fade" style="--fade-from:#2a0c16;"></div>
+      <div class="section-fade" style="--fade-from:#120a0d;"></div>
       <div class="closing-title">Ждём вас!</div>
-      <div class="divider" style="width:140px;margin-top:30px;"><span class="divider-line"></span><span class="divider-dot"></span><span class="divider-line"></span></div>
+      <div class="divider" style="width:140px;margin-top:32px;"><span class="divider-line"></span><span class="divider-dot"></span><span class="divider-line"></span></div>
       <div class="closing-sub">Святослав &amp; Ксения · 14 августа 2027</div>
       <p class="body-text" style="max-width:320px;margin:40px auto 0;">По всем вопросам вы можете обращаться к нашему организатору Полине.</p>
       <div class="contact-row">
