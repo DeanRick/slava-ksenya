@@ -129,15 +129,9 @@ body { font-family: 'Poiret One', sans-serif; font-size: 18.5px; }
 .schedule-frame-art {
   position: absolute; inset: 0;
   pointer-events: none;
-  background-color: #c9a96a;
-  mask-image: url('assets/schedule-frame.jpg');
-  -webkit-mask-image: url('assets/schedule-frame.jpg');
-  mask-size: 100% 100%;
-  -webkit-mask-size: 100% 100%;
-  mask-repeat: no-repeat;
-  -webkit-mask-repeat: no-repeat;
-  mask-mode: luminance;
-  -webkit-mask-source-type: luminance;
+  background-image: url('assets/schedule-frame-gold.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
 }
 .schedule-frame-content {
   position: absolute; inset: 0;
